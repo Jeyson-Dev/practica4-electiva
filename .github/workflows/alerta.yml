@@ -27,6 +27,7 @@ jobs:
           SHA: ${{ github.sha }}
           MENSAJE: ${{ github.event.head_commit.message }}
         run: |
+          MENSAJE="${MENSAJE%%$'\n'*}"
           curl -sS \
             -H "Title: Push a main en $REPO" \
             -H "Tags: rocket" \
